@@ -1,0 +1,40 @@
+import js from "@eslint/js";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import { defineConfig } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+
+export default defineConfig([
+  {
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      "coverage/**",
+      ".husky/**",
+      "pnpm-lock.yaml",
+      "*.log",
+      "*.tmp",
+      ".DS_Store",
+      "*.d.ts",
+    ],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    plugins: { js },
+    extends: ["js/recommended"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
+  {
+    rules: {
+      "no-unused-vars": "warn",
+      "no-undef": "warn",
+    },
+  },
+  tseslint.configs.recommended,
+  eslintConfigPrettier,
+]);
