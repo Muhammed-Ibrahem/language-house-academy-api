@@ -4,6 +4,8 @@ import express from "express";
 import path from "path";
 import { httpLogger } from "@common-middleware/httpLogger";
 import { errorLogger } from "@common-middleware/errorLogger";
+import { notFound } from "./core/middleware/not-found-handler";
+import { errorHandler } from "./core/middleware/error-handler";
 
 const app = express();
 
@@ -21,6 +23,10 @@ app.get("/_health", (_, res) => {
   });
 });
 
+app.use(notFound);
+
 app.use(errorLogger);
+
+app.use(errorHandler);
 
 export default app;
