@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { ErrorCodes } from "../errors/error-codes-registery";
 import Logger from "../utils/logger";
 
-export const errorHandler = (err: unknown, req: Request, res: Response, __: NextFunction) => {
+export const errorHandler = (err: unknown, req: Request, res: Response, _: NextFunction) => {
   const isDev = process.env["NODE_ENV"] === "development";
 
   if (err instanceof AppError) {

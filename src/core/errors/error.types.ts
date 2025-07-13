@@ -9,7 +9,7 @@ export interface ErrorResponse {
 
   stack?: string;
 
-  fields?: Record<string, any>[];
+  fields?: Record<string, unknown>[];
 }
 
 export interface ErrorCode {

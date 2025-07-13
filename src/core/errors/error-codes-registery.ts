@@ -1,5 +1,3 @@
-import { ErrorCode } from "./error.types";
-
 export const ErrorCodes = {
   NOT_FOUND: {
     message: "Resource not found",
