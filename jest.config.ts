@@ -27,14 +27,18 @@ const config: Config = {
   collectCoverageFrom: ["src/**/*.ts"],
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
-    "/node_modules/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/dist/",
     "<rootDir>/src/core/utils/logger.ts",
     "<rootDir>/src/common/middleware/httpLogger.ts",
     "<rootDir>/src/common/middleware/errorLogger.ts",
+    "<rootDir>/src/.*\\.types\\.ts$",
+    "<rootDir>/src/.*\\.d\\.ts$",
+    "<rootDir>/src/.*\\.(test|spec)\\.ts$",
   ],
 
   // Indicates which provider should be used to instrument code for coverage
@@ -144,7 +148,7 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -165,9 +169,7 @@ const config: Config = {
   testMatch: ["**/__tests__/**/*.?([mc])[jt]s?(x)", "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
-  // ],
+  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/dist/", "<rootDir>/coverage/"],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

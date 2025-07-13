@@ -26,6 +26,7 @@
     "noImplicitOverride": true,
     "allowUnreachableCode": true,
     "noPropertyAccessFromIndexSignature": true,
+    "useUnknownInCatchVariables": true,
     "skipLibCheck": true
   },
   "include": ["src"],
