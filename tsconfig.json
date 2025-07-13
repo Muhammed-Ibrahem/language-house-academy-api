@@ -6,7 +6,9 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@config/*": ["src/common/config/*"]
+      "@config/*": ["src/common/config/*"],
+      "@common-middleware/*": ["src/common/middleware/*"],
+      "@core-utils/*": ["src/core/utils/*"]
     },
     "resolveJsonModule": true,
     "outDir": "dist",
@@ -23,6 +25,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "allowUnreachableCode": true,
+    "noPropertyAccessFromIndexSignature": true,
     "skipLibCheck": true
   },
   "include": ["src"],
