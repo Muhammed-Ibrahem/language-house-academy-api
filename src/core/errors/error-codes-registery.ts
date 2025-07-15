@@ -1,3 +1,5 @@
+import { dbErrorCodeRegistery } from "@/common/database/database-error-codes-registery";
+
 export const ErrorCodes = {
   NOT_FOUND: {
     message: "Resource not found",
@@ -9,6 +11,7 @@ export const ErrorCodes = {
     statusCode: 500,
     code: "INTERNAL_ERROR",
   },
+  ...dbErrorCodeRegistery,
 } as const;
 
 export type ErrorCodeKey = keyof typeof ErrorCodes;
